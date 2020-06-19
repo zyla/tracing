@@ -21,6 +21,7 @@ module Monitor.Tracing.Zipkin (
   -- * Publishing traces
   Zipkin,
   new, run, publish, with,
+  tracer,
 
   -- * Cross-process spans
   -- ** Communication
@@ -159,6 +160,9 @@ with settings f = do
 -- | Adds a tag to the active span.
 tag :: MonadTrace m => Text -> Text -> m ()
 tag key val = addSpanEntry (publicKeyPrefix <> key) (tagTextValue val)
+
+tracer :: Zipkin -> Tracer
+tracer = zipkinTracer
 
 -- | Adds a tag to a builder. This is a convenience method to use with 'childSpanWith', for example:
 --
