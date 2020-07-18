@@ -22,7 +22,7 @@ module Control.Monad.Trace (
   -- ** Pending spans
   pendingSpanCount,
 
-  Scope,
+  Scope(..),
   initScope,
   rootScope
 ) where
