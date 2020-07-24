@@ -8,7 +8,7 @@
 -- adding tracing to an application, start at "Monitor.Tracing".
 module Control.Monad.Trace (
   -- * Tracers
-  Tracer, newTracer,
+  Tracer(..), newTracer,
   runTraceT, TraceT,
 
   -- * Collected data
